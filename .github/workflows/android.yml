@@ -66,7 +66,7 @@ jobs:
         git push
     
     - name: Get JRE8
-      uses: dawidd6/action-download-artifact@v2
+      uses: dawidd6/action-download-artifact@v4
       with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           workflow: build.yml
@@ -103,7 +103,7 @@ jobs:
         ./gradlew assembleDebug
         mv app_pojavlauncher/build/outputs/apk/debug/app_pojavlauncher-debug.apk out/app-debug-noruntime.apk
     - name: Upload APK
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
           name: app-debug
           path: out/app-debug.apk
