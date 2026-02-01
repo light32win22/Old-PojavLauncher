@@ -30,7 +30,7 @@ jobs:
       shell: bash
       
     - name: Cache gl4es
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       id: gl4es-cache
       with:
         path: gl4es/libs
@@ -38,7 +38,7 @@ jobs:
 
     - name: Get gl4es
       if: steps.gl4es-cache.outputs.cache-hit != 'true'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         repository: 'ptitSeb/gl4es'
         path: 'gl4es'
@@ -116,7 +116,7 @@ jobs:
         track: internal
         inAppUpdatePriority: 5
     - name: Upload APK (without runtime)
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
           name: app-debug-noruntime
           path: out/app-debug-noruntime.apk
